@@ -2,7 +2,10 @@
 const is = require("@slimio/is");
 
 /**
- * @type {WeakMap<QueueMap, Map<String|Number|Symbol, any[]>>}
+ * @typedef {String|Number|Symbol} keyDef
+ */
+/**
+ * @type {WeakMap<QueueMap, Map<keyDef, any[]>>}
  */
 const Queues = new WeakMap();
 
@@ -11,20 +14,37 @@ const Queues = new WeakMap();
  */
 class QueueMap {
     /**
+     * @version 0.1.0
+     *
      * @constructor
+     *
+     * @example
+     * const queue = new Queue();
      */
     constructor() {
         Queues.set(this, new Map());
     }
 
     /**
-     * @memberof #QueueMap
+     * @version 0.1.0
+     *
+     * @public
+     * @memberof QueueMap#
      * @method enqueue
-     * @param {!String|Number|Symbol} id key identifier
+     * @desc enqueue data in a queue
+     * @param {!keyDef} id key identifier
      * @param {!*} value value to enqueue
      *
      * @throws {TypeError}
      * @returns {void}
+     *
+     * @example
+     * const queue = new Queue();
+     *
+     * queue.enqueue(100, 1);
+     * queue.enqueue(100, 2);
+     *
+     * queue.enqueue("foo", "bar");
      */
     enqueue(id, value) {
         if (!is.string(id) && !is.number(id) && !is.symbol(id)) {
@@ -44,12 +64,25 @@ class QueueMap {
     }
 
     /**
-     * @memberof #QueueMap
+     * @version 0.1.0
+     *
+     * @public
+     * @memberof QueueMap#
      * @method dequeue
-     * @param {!String|Number|Symbol} id key identifier
+     * @desc dequeue one data from a queue
+     * @param {!keyDef} id key identifier
      *
      * @throws {TypeError|Error}
      * @returns {any}
+     *
+     * @example
+     * const queue = new Queue();
+     *
+     * queue.enqueue(100, 1);
+     * queue.enqueue("foo", "bar");
+     *
+     * console.log(queue.dequeue(100)); // 1
+     * console.log(queue.dequeue("foo")); // "bar"
      */
     dequeue(id) {
         if (!is.string(id) && !is.number(id) && !is.symbol(id)) {
@@ -70,12 +103,26 @@ class QueueMap {
     }
 
     /**
-     * @memberof #QueueMap
+     * @version 0.1.0
+     *
+     * @public
+     * @memberof QueueMap#
      * @method dequeueAll
-     * @param {!String|Number|Symbol} id key identifier
+     * @desc Dequeue all data from a queue
+     * @param {!keyDef} id key identifier
      *
      * @throws {TypeError|Error}
      * @returns {Iterator<any>}
+     *
+     * @example
+     * const queue = new Queue();
+     *
+     * queue.enqueue(100, 1);
+     * queue.enqueue(100, 2);
+     * queue.enqueue(100, 3);
+     *
+     * const data = [...queue.dequeueAll(100)];
+     * console.log(data); // [1, 2, 3]
      */
     * dequeueAll(id) {
         if (!is.string(id) && !is.number(id) && !is.symbol(id)) {
@@ -94,21 +141,47 @@ class QueueMap {
     }
 
     /**
-     * @memberof #QueueMap
+     * @version 0.1.0
+     *
+     * @public
+     * @memberof QueueMap#
      * @method ids
+     * @desc Get all queues keys
      * @returns {String[]}
+     *
+     * @example
+     * const queue = new Queue();
+     *
+     * queue.enqueue(100, 1);
+     * queue.enqueue("foo", "bar");
+     * queue.enqueue("test", 20);
+     *
+     * console.log(queue.ids()); // [100, "foo", "test"]
      */
     ids() {
         return [...Queues.get(this).keys()];
     }
 
     /**
-     * @memberof #QueueMap
+     * @version 0.1.0
+     *
+     * @public
+     * @memberof QueueMap#
      * @method idLength
-     * @param {!String|Number|Symbol} id id
+     * @desc Get data length of a queue
+     * @param {!keyDef} id id
      *
      * @throws {TypeError|Error}
      * @returns {Number}
+     *
+     * @example
+     * const queue = new Queue();
+     *
+     * queue.enqueue("test", 20);
+     * queue.enqueue("test", 21);
+     * queue.enqueue("test", 22);
+     *
+     * console.log(queue.idLength("test")); // 3
      */
     idLength(id) {
         if (!is.string(id) && !is.number(id) && !is.symbol(id)) {
