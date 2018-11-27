@@ -1,5 +1,6 @@
-# @slimio/queue
+# Queue
 
+SlimIO - Simple Queue system
 
 ## Getting Started
 
