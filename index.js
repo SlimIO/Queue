@@ -7,7 +7,6 @@ const Queues = new WeakMap();
  * @class QueueMap
  */
 class QueueMap {
-
     /**
      * @constructor
      */
@@ -55,7 +54,7 @@ class QueueMap {
      * @param {!String|Number|Symbol} id key identifier
      * @returns {Iterator<any>}
      */
-    *dequeueAll(id) {
+    * dequeueAll(id) {
         const q_ = Queues.get(this);
         if (!q_.has(id)) {
             throw new Error(`Unknow queue id ${id}`);
@@ -84,7 +83,6 @@ class QueueMap {
     idLength(id) {
         return Queues.get(this).get(id).length;
     }
-
 }
 
 module.exports = QueueMap;
