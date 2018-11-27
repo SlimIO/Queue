@@ -15,7 +15,7 @@ const Queues = new WeakMap();
 class QueueMap {
     /**
      * @version 0.1.0
-     *
+     * @memberof QueueMap#
      * @constructor
      *
      * @example
