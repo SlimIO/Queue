@@ -27,7 +27,7 @@ class QueueMap {
      * @returns {void}
      */
     enqueue(id, value) {
-        if (!is.nullOrUndefined(id) && !is.string(id) && !is.number(id) && !is.symbol(id)) {
+        if (!is.string(id) && !is.number(id) && !is.symbol(id)) {
             throw new TypeError("id param must be typeof <string|number|Symbol>");
         }
         if (is.nullOrUndefined(value)) {
@@ -48,17 +48,17 @@ class QueueMap {
      * @method dequeue
      * @param {!String|Number|Symbol} id key identifier
      *
-     * @throws {TypeError}
+     * @throws {TypeError|Error}
      * @returns {any}
      */
     dequeue(id) {
-        if (!is.nullOrUndefined(id) && !is.string(id) && !is.number(id) && !is.symbol(id)) {
+        if (!is.string(id) && !is.number(id) && !is.symbol(id)) {
             throw new TypeError("id param must be typeof <string|number|Symbol>");
         }
 
         const q_ = Queues.get(this);
         if (!q_.has(id)) {
-            return null;
+            throw new Error(`Unknow queue id ${id}`);
         }
 
         const arrRef = q_.get(id);
@@ -74,11 +74,11 @@ class QueueMap {
      * @method dequeueAll
      * @param {!String|Number|Symbol} id key identifier
      *
-     * @throws {TypeError}
+     * @throws {TypeError|Error}
      * @returns {Iterator<any>}
      */
     * dequeueAll(id) {
-        if (!is.nullOrUndefined(id) && !is.string(id) && !is.number(id) && !is.symbol(id)) {
+        if (!is.string(id) && !is.number(id) && !is.symbol(id)) {
             throw new TypeError("id param must be typeof <string|number|Symbol>");
         }
         const q_ = Queues.get(this);
@@ -107,15 +107,20 @@ class QueueMap {
      * @method idLength
      * @param {!String|Number|Symbol} id id
      *
-     * @throws {TypeError}
+     * @throws {TypeError|Error}
      * @returns {Number}
      */
     idLength(id) {
-        if (!is.nullOrUndefined(id) && !is.string(id) && !is.number(id) && !is.symbol(id)) {
+        if (!is.string(id) && !is.number(id) && !is.symbol(id)) {
             throw new TypeError("id param must be typeof <string|number|Symbol>");
         }
 
-        return Queues.get(this).get(id).length;
+        const q_ = Queues.get(this);
+        if (!q_.has(id)) {
+            throw new Error(`Unknow queue id ${id}`);
+        }
+
+        return q_.get(id).length;
     }
 }
 
