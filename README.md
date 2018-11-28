@@ -24,7 +24,9 @@ console.log(queue.dequeue("foo")); // "bar"
 ```
 
 ## API
-> `type queueKey = string|number|symbol;`
+```ts
+type queueKey = string|number|symbol;
+```
 
 ### Queue.enqueue(id: queueKey, value: any): void;
 Enqueue data in a queue

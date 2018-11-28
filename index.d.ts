@@ -1,18 +1,17 @@
 /// <reference types="@types/node" />
 
 declare namespace Queue {
-    type queueKey = string|number|symbol;
-    type Queues = WeakMap<QueueMap, Map<keyDef, any[]>>;
+    type id = string|number|symbol;
+}
 
-    declare class QueueMap {
-        constructor();
+declare class Queue {
+    constructor();
 
-        public enqueue(id: queueKey, value: any): void;
-        public dequeue(id: queueKey): any;
-        public dequeueAll(id: queueKey): Iterator<any>;
-        public ids(): string[];
-        public idLength(id: queueKey): number;
-    }
+    public enqueue(id: Queue.id, value: any): void;
+    public dequeue(id: Queue.id): any;
+    public dequeueAll(id: Queue.id): Iterator<any>;
+    public ids(): string[];
+    public idLength(id: Queue.id): number;
 }
 
 export as namespace Queue;
