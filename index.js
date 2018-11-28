@@ -31,7 +31,7 @@ class QueueMap {
      * @public
      * @memberof QueueMap#
      * @method enqueue
-     * @desc enqueue data in a queue
+     * @desc Enqueue data in a queue
      * @param {!keyDef} id key identifier
      * @param {!*} value value to enqueue
      *
@@ -69,7 +69,7 @@ class QueueMap {
      * @public
      * @memberof QueueMap#
      * @method dequeue
-     * @desc dequeue one data from a queue
+     * @desc Dequeue the first data that was enqueued in a queue
      * @param {!keyDef} id key identifier
      *
      * @throws {TypeError|Error}
