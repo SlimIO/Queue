@@ -1,9 +1,9 @@
 // Require Third-Party Dependencies
 const is = require("@slimio/is");
 
-/** @typedef {String|Number|Symbol} keyDef */
+/** @typedef {String|Number|Symbol} QID */
 
-/** @type {WeakMap<Queue, Map<keyDef, any[]>>} */
+/** @type {WeakMap<Queue, Map<QID, any[]>>} */
 const Queues = new WeakMap();
 
 /**
@@ -29,7 +29,7 @@ class Queue {
      * @memberof Queue#
      * @method enqueue
      * @desc Enqueue data in a queue
-     * @param {!keyDef} id key identifier
+     * @param {!QID} id key identifier
      * @param {!*} value value to enqueue
      *
      * @throws {TypeError}
@@ -67,7 +67,7 @@ class Queue {
      * @memberof Queue#
      * @method dequeue
      * @desc Dequeue the first data that was enqueued in a queue
-     * @param {!keyDef} id key identifier
+     * @param {!QID} id key identifier
      *
      * @throws {TypeError|Error}
      * @returns {any}
@@ -106,7 +106,7 @@ class Queue {
      * @memberof Queue#
      * @method dequeueAll
      * @desc Dequeue all data that was enqueued in a queue
-     * @param {!keyDef} id key identifier
+     * @param {!QID} id key identifier
      *
      * @throws {TypeError|Error}
      * @returns {Iterator<any>}
@@ -166,7 +166,7 @@ class Queue {
      * @memberof Queue#
      * @method idLength
      * @desc Get data length of a queue
-     * @param {!keyDef} id id
+     * @param {!QID} id id
      *
      * @throws {TypeError|Error}
      * @returns {Number}
