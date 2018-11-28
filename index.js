@@ -108,7 +108,7 @@ class QueueMap {
      * @public
      * @memberof QueueMap#
      * @method dequeueAll
-     * @desc Dequeue all data from a queue
+     * @desc Dequeue all data that was enqueued in a queue
      * @param {!keyDef} id key identifier
      *
      * @throws {TypeError|Error}
