@@ -7,7 +7,7 @@ declare namespace Queue {
     declare class QueueMap {
         constructor();
 
-        public enqueue(id: queueKey, value: any);
+        public enqueue(id: queueKey, value: any): void;
         public dequeue(id: queueKey): any;
         public dequeueAll(id: queueKey): Iterator<any>;
         public ids(): string[];
