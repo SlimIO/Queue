@@ -1,12 +1,9 @@
 // Require Third-Party Dependencies
 const is = require("@slimio/is");
 
-/**
- * @typedef {String|Number|Symbol} keyDef
- */
-/**
- * @type {WeakMap<QueueMap, Map<keyDef, any[]>>}
- */
+/** @typedef {String|Number|Symbol} keyDef */
+
+/** @type {WeakMap<QueueMap, Map<keyDef, any[]>>} */
 const Queues = new WeakMap();
 
 /**
