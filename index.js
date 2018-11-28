@@ -7,6 +7,20 @@ const is = require("@slimio/is");
 const Queues = new WeakMap();
 
 /**
+ * @function assertQID
+ * @desc assert QID (throw a TypeError if the QID is not valid)
+ * @param {!QID} id Queue ID
+ * @returns {void}
+ *
+ * @throws {TypeError}
+ */
+function assertQID(id) {
+    if (!is.string(id) && !is.number(id) && !is.symbol(id)) {
+        throw new TypeError("id param must be typeof <string|number|Symbol>");
+    }
+}
+
+/**
  * @class Queue
  */
 class Queue {
@@ -44,9 +58,7 @@ class Queue {
      * queue.enqueue("foo", "bar");
      */
     enqueue(id, value) {
-        if (!is.string(id) && !is.number(id) && !is.symbol(id)) {
-            throw new TypeError("id param must be typeof <string|number|Symbol>");
-        }
+        assertQID(id);
         if (is.nullOrUndefined(value)) {
             throw new TypeError("value param must be define");
         }
@@ -82,9 +94,7 @@ class Queue {
      * console.log(queue.dequeue("foo")); // "bar"
      */
     dequeue(id) {
-        if (!is.string(id) && !is.number(id) && !is.symbol(id)) {
-            throw new TypeError("id param must be typeof <string|number|Symbol>");
-        }
+        assertQID(id);
 
         const q_ = Queues.get(this);
         if (!q_.has(id)) {
@@ -122,9 +132,7 @@ class Queue {
      * console.log(data); // [1, 2, 3]
      */
     * dequeueAll(id) {
-        if (!is.string(id) && !is.number(id) && !is.symbol(id)) {
-            throw new TypeError("id param must be typeof <string|number|Symbol>");
-        }
+        assertQID(id);
         const q_ = Queues.get(this);
         if (!q_.has(id)) {
             throw new Error(`Unknow queue id ${id}`);
@@ -181,9 +189,7 @@ class Queue {
      * console.log(queue.idLength("test")); // 3
      */
     idLength(id) {
-        if (!is.string(id) && !is.number(id) && !is.symbol(id)) {
-            throw new TypeError("id param must be typeof <string|number|Symbol>");
-        }
+        assertQID(id);
 
         const q_ = Queues.get(this);
         if (!q_.has(id)) {
