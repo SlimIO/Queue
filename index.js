@@ -3,16 +3,16 @@ const is = require("@slimio/is");
 
 /** @typedef {String|Number|Symbol} keyDef */
 
-/** @type {WeakMap<QueueMap, Map<keyDef, any[]>>} */
+/** @type {WeakMap<Queue, Map<keyDef, any[]>>} */
 const Queues = new WeakMap();
 
 /**
- * @class QueueMap
+ * @class Queue
  */
-class QueueMap {
+class Queue {
     /**
      * @version 0.1.0
-     * @memberof QueueMap#
+     * @memberof Queue#
      * @constructor
      *
      * @example
@@ -26,7 +26,7 @@ class QueueMap {
      * @version 0.1.0
      *
      * @public
-     * @memberof QueueMap#
+     * @memberof Queue#
      * @method enqueue
      * @desc Enqueue data in a queue
      * @param {!keyDef} id key identifier
@@ -64,7 +64,7 @@ class QueueMap {
      * @version 0.1.0
      *
      * @public
-     * @memberof QueueMap#
+     * @memberof Queue#
      * @method dequeue
      * @desc Dequeue the first data that was enqueued in a queue
      * @param {!keyDef} id key identifier
@@ -103,7 +103,7 @@ class QueueMap {
      * @version 0.1.0
      *
      * @public
-     * @memberof QueueMap#
+     * @memberof Queue#
      * @method dequeueAll
      * @desc Dequeue all data that was enqueued in a queue
      * @param {!keyDef} id key identifier
@@ -141,7 +141,7 @@ class QueueMap {
      * @version 0.1.0
      *
      * @public
-     * @memberof QueueMap#
+     * @memberof Queue#
      * @method ids
      * @desc Get all queues keys
      * @returns {String[]}
@@ -163,7 +163,7 @@ class QueueMap {
      * @version 0.1.0
      *
      * @public
-     * @memberof QueueMap#
+     * @memberof Queue#
      * @method idLength
      * @desc Get data length of a queue
      * @param {!keyDef} id id
@@ -194,4 +194,4 @@ class QueueMap {
     }
 }
 
-module.exports = QueueMap;
+module.exports = Queue;
