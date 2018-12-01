@@ -173,7 +173,7 @@ class Queue {
      * @public
      * @memberof Queue#
      * @method idLength
-     * @desc Get data length of a queue
+     * @desc Return the number of elements of a given QueueID.
      * @param {!QID} id id
      *
      * @throws {TypeError|Error}

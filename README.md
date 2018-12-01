@@ -71,7 +71,7 @@ console.log(data); // [1, 2, 3]
 ```
 
 ### Queue.ids(): string[];
-Dequeue all data that was enqueued in a queue
+Get all queues keys
 ```js
 const queue = new Queue();
 
