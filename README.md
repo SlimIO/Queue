@@ -70,6 +70,17 @@ const data = [...queue.dequeueAll(100)];
 console.log(data); // [1, 2, 3]
 ```
 
+### Queue.has(id: Queue.id): boolean;
+Check if a QueueID exist
+```js
+const queue = new Queue();
+
+queue.enqueue("foo", "bar");
+
+console.log(queue.has("foo")); // true
+console.log(queue.has("fo")); // false
+```
+
 ### Queue.ids(): string[];
 Get all queues keys
 ```js
@@ -81,6 +92,7 @@ queue.enqueue("test", 20);
 
 console.log(queue.ids()); // [100, "foo", "test"]
 ```
+
 ### Queue.idLength(id: Queue.id): Number;
 Return the number of elements of a given QueueID.
 ```js

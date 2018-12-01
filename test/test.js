@@ -54,6 +54,20 @@ avaTest("dequeueAll() throw TypeError | Error", (assert) => {
     assert.is(error.message, "Unknow queue id other");
 });
 
+avaTest("has() throw TypeError", (assert) => {
+    const queue = new Queue();
+
+    let error = assert.throws(() => {
+        queue.has([]);
+    }, TypeError);
+    assert.is(error.message, "id param must be typeof <string|number|Symbol>");
+
+    error = assert.throws(() => {
+        queue.has({});
+    }, Error);
+    assert.is(error.message, "id param must be typeof <string|number|Symbol>");
+});
+
 avaTest("idLength() throw TypeError | Error", (assert) => {
     const queue = new Queue();
     queue.enqueue("test", 10);
@@ -122,6 +136,16 @@ avaTest("dequeueAll()", (assert) => {
     const empty = [...queue.dequeueAll("test")];
     assert.deepEqual(empty, []);
 });
+
+avaTest("has()", (assert) => {
+    const queue = new Queue();
+    queue.enqueue("foo", "bar");
+    queue.enqueue(100, 200);
+
+    assert.is(queue.has("foo"), true);
+    assert.is(queue.has(100), true);
+});
+
 
 avaTest("ids()", (assert) => {
     const queue = new Queue();

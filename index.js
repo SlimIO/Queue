@@ -146,6 +146,30 @@ class Queue {
     }
 
     /**
+     * @version 0.2.0
+     *
+     * @public
+     * @memberof Queue#
+     * @method has
+     * @desc Check if a QueueID exist
+     * @param {!QID} id key identifier
+     * @returns {String[]}
+     *
+     * @example
+     * const queue = new Queue();
+     *
+     * queue.enqueue("foo", "bar");
+     *
+     * console.log(queue.has("foo")); // true
+     * console.log(queue.has("fo")); // false
+     */
+    has(id) {
+        assertQID(id);
+
+        return Queues.get(this).has(id);
+    }
+
+    /**
      * @version 0.1.0
      *
      * @public
@@ -174,7 +198,7 @@ class Queue {
      * @memberof Queue#
      * @method idLength
      * @desc Return the number of elements of a given QueueID.
-     * @param {!QID} id id
+     * @param {!QID} id key identifier
      *
      * @throws {TypeError|Error}
      * @returns {Number}
