@@ -3,25 +3,21 @@ const Queue = require("../index.js");
 
 avaTest("enqueue() throw TypeError", (assert) => {
     const queue = new Queue();
-    let error = assert.throws(() => {
+    assert.throws(() => {
         queue.enqueue();
-    }, { instanceOf: TypeError, message: "" });
-    assert.is(error.message, "id param must be typeof <string|number|Symbol>");
+    }, { instanceOf: TypeError, message: "id param must be typeof <string|number|Symbol>" });
 
-    error = assert.throws(() => {
+    assert.throws(() => {
         queue.enqueue({});
-    }, { instanceOf: TypeError, message: "" });
-    assert.is(error.message, "id param must be typeof <string|number|Symbol>");
+    }, { instanceOf: TypeError, message: "id param must be typeof <string|number|Symbol>" });
 
-    error = assert.throws(() => {
+    assert.throws(() => {
         queue.enqueue(null);
-    }, { instanceOf: TypeError, message: "" });
-    assert.is(error.message, "id param must be typeof <string|number|Symbol>");
+    }, { instanceOf: TypeError, message: "id param must be typeof <string|number|Symbol>" });
 
-    error = assert.throws(() => {
+    assert.throws(() => {
         queue.enqueue(10);
-    }, { instanceOf: TypeError, message: "" });
-    assert.is(error.message, "value param must be define");
+    }, { instanceOf: TypeError, message: "value param must be define" });
 });
 
 avaTest("dequeue() throw TypeError | Error", (assert) => {
@@ -56,7 +52,7 @@ avaTest("has() throw TypeError", (assert) => {
         queue.has([]);
     }, { instanceOf: TypeError, message: "id param must be typeof <string|number|Symbol>" });
 
-    error = assert.throws(() => {
+    assert.throws(() => {
         queue.has({});
     }, { instanceOf: Error, message: "id param must be typeof <string|number|Symbol>" });
 });
