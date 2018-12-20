@@ -5,22 +5,22 @@ avaTest("enqueue() throw TypeError", (assert) => {
     const queue = new Queue();
     let error = assert.throws(() => {
         queue.enqueue();
-    }, TypeError);
+    }, { instanceOf: TypeError, message: "" });
     assert.is(error.message, "id param must be typeof <string|number|Symbol>");
 
     error = assert.throws(() => {
         queue.enqueue({});
-    }, TypeError);
+    }, { instanceOf: TypeError, message: "" });
     assert.is(error.message, "id param must be typeof <string|number|Symbol>");
 
     error = assert.throws(() => {
         queue.enqueue(null);
-    }, TypeError);
+    }, { instanceOf: TypeError, message: "" });
     assert.is(error.message, "id param must be typeof <string|number|Symbol>");
 
     error = assert.throws(() => {
         queue.enqueue(10);
-    }, TypeError);
+    }, { instanceOf: TypeError, message: "" });
     assert.is(error.message, "value param must be define");
 });
 
@@ -28,59 +28,50 @@ avaTest("dequeue() throw TypeError | Error", (assert) => {
     const queue = new Queue();
     queue.enqueue("test", 10);
 
-    let error = assert.throws(() => {
+    assert.throws(() => {
         queue.dequeue();
-    }, TypeError);
-    assert.is(error.message, "id param must be typeof <string|number|Symbol>");
+    }, { instanceOf: TypeError, message: "id param must be typeof <string|number|Symbol>" });
 
-    error = assert.throws(() => {
+    assert.throws(() => {
         queue.dequeue("other");
-    }, Error);
-    assert.is(error.message, "Unknow queue id other");
+    }, { instanceOf: Error, message: "Unknow queue id other" });
 });
 
 avaTest("dequeueAll() throw TypeError | Error", (assert) => {
     const queue = new Queue();
     queue.enqueue("test", 10);
 
-    let error = assert.throws(() => {
+    assert.throws(() => {
         const allDequeue = [...queue.dequeueAll()];
-    }, TypeError);
-    assert.is(error.message, "id param must be typeof <string|number|Symbol>");
+    }, { instanceOf: TypeError, message: "id param must be typeof <string|number|Symbol>" });
 
-    error = assert.throws(() => {
+    assert.throws(() => {
         const allDequeue = [...queue.dequeueAll("other")];
-    }, Error);
-    assert.is(error.message, "Unknow queue id other");
+    }, { instanceOf: Error, message: "Unknow queue id other" });
 });
 
 avaTest("has() throw TypeError", (assert) => {
     const queue = new Queue();
-
-    let error = assert.throws(() => {
+    assert.throws(() => {
         queue.has([]);
-    }, TypeError);
-    assert.is(error.message, "id param must be typeof <string|number|Symbol>");
+    }, { instanceOf: TypeError, message: "id param must be typeof <string|number|Symbol>" });
 
     error = assert.throws(() => {
         queue.has({});
-    }, Error);
-    assert.is(error.message, "id param must be typeof <string|number|Symbol>");
+    }, { instanceOf: Error, message: "id param must be typeof <string|number|Symbol>" });
 });
 
 avaTest("idLength() throw TypeError | Error", (assert) => {
     const queue = new Queue();
     queue.enqueue("test", 10);
 
-    let error = assert.throws(() => {
+    assert.throws(() => {
         queue.idLength();
-    }, TypeError);
-    assert.is(error.message, "id param must be typeof <string|number|Symbol>");
+    }, { instanceOf: TypeError, message: "id param must be typeof <string|number|Symbol>" });
 
-    error = assert.throws(() => {
+    assert.throws(() => {
         queue.idLength("other");
-    }, Error);
-    assert.is(error.message, "Unknow queue id other");
+    }, { instanceOf: Error, message: "Unknow queue id other" });
 });
 
 avaTest("enqueue()", (assert) => {
