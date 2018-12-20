@@ -39,7 +39,7 @@
     },
     "keywords": [
         "SlimIO",
-        "monitoring"
+        "Queue"
     ],
     "engines": {
         "node": ">=10"
