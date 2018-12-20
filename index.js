@@ -98,7 +98,7 @@ class Queue {
 
         const q_ = Queues.get(this);
         if (!q_.has(id)) {
-            throw new Error(`Unknow queue id ${id}`);
+            throw new Error(`Unknow queue id ${is.symbol(id) ? id.toString() : id}`);
         }
 
         const arrRef = q_.get(id);
@@ -135,7 +135,7 @@ class Queue {
         assertQID(id);
         const q_ = Queues.get(this);
         if (!q_.has(id)) {
-            throw new Error(`Unknow queue id ${id}`);
+            throw new Error(`Unknow queue id ${is.symbol(id) ? id.toString() : id}`);
         }
 
         const arrRef = q_.get(id);
@@ -217,7 +217,7 @@ class Queue {
 
         const q_ = Queues.get(this);
         if (!q_.has(id)) {
-            throw new Error(`Unknow queue id ${id}`);
+            throw new Error(`Unknow queue id ${is.symbol(id) ? id.toString() : id}`);
         }
 
         return q_.get(id).length;
