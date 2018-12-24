@@ -141,14 +141,17 @@ avaTest("dequeue()", (assert) => {
     assert.is(queue.dequeue(10), 2);
     assert.is(queue.dequeue(10), 3);
     assert.is(queue.dequeue(10), null);
+    assert.true(queue.idLength(10) === 0);
 
     assert.is(queue.dequeue("string"), "one");
     assert.is(queue.dequeue("string"), "two");
     assert.is(queue.dequeue("string"), "three");
+    assert.true(queue.idLength("string") === 0);
 
     assert.is(queue.dequeue(symbol), 4);
     assert.is(queue.dequeue(symbol), 5);
     assert.is(queue.dequeue(symbol), 6);
+    assert.true(queue.idLength(symbol) === 0);
 });
 
 avaTest("dequeueAll()", (assert) => {
