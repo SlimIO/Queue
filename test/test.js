@@ -99,19 +99,26 @@ avaTest("idLength() throw TypeError | Error", (assert) => {
 avaTest("enqueue()", (assert) => {
     const queue = new Queue();
 
-    queue.enqueue(10, 1);
+    const ret = queue.enqueue(10, 1);
+    assert.is(ret, void 0);
+
     queue.enqueue(10, 2);
     queue.enqueue(10, 3);
+    assert.true(queue.has(10));
+    assert.is(queue.idLength(10), 3);
 
     queue.enqueue("string", "1");
     queue.enqueue("string", "2");
-    queue.enqueue("string", "3");
+    assert.true(queue.has("string"));
+    assert.is(queue.idLength("string"), 2);
 
     const symbol = Symbol("symbol");
     queue.enqueue(symbol, 4);
     queue.enqueue(symbol, 5);
+    assert.true(queue.has(symbol));
+    assert.is(queue.dequeue(symbol), 4);
 
-    assert.pass();
+    assert.deepEqual(queue.ids(), [10, "string", symbol]);
 });
 
 avaTest("dequeue()", (assert) => {
