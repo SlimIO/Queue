@@ -6,7 +6,7 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/SlimIO/Queue/badge.svg?targetFile=package.json)](https://snyk.io/test/github/SlimIO/Queue?targetFile=package.json)
 [![Build Status](https://travis-ci.com/SlimIO/Queue.svg?branch=master)](https://travis-ci.com/SlimIO/Queue)
 
-SlimIO - Simple Queue system
+SlimIO - Simple Queue system. This package has been created for the SlimIO core and does not aim to be a popular Queue package (it answer our needs).
 
 ## Getting Started
 
@@ -107,5 +107,5 @@ queue.enqueue("test", 22);
 console.log(queue.idLength("test")); // 3
 ```
 
-## LICENCE
+## License
 MIT
