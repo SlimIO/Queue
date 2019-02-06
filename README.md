@@ -30,14 +30,10 @@ console.log(queue.dequeue("foo")); // "bar"
 ```
 
 ## API
-```ts
-declare namespace Queue {
-    type id = string|number|symbol;
-}
-```
+An id is described by the following type: `string|number|symbol`.
 
-### Queue.enqueue(id: Queue.id, value: any): void;
-Enqueue data in a queue
+### enqueue(id, value: any): void;
+Enqueue data in a given queue (identified by his id).
 ```js
 const queue = new Queue();
 
@@ -47,8 +43,8 @@ queue.enqueue(100, 2);
 queue.enqueue("foo", "bar");
 ```
 
-### Queue.dequeue(id: Queue.id): any;
-Dequeue the first data that was enqueued in a queue
+### dequeue(id): any;
+Dequeue the first data that was enqueued in the given queue id.
 ```js
 const queue = new Queue();
 
@@ -59,8 +55,8 @@ console.log(queue.dequeue(100)); // 1
 console.log(queue.dequeue("foo")); // "bar"
 ```
 
-### Queue.dequeueAll(id: Queue.id): Iterator<any>;
-Dequeue all data that was enqueued in a queue
+### dequeueAll(id): Iterator<any>;
+Dequeue all data that was enqueued in the given queue id.
 ```js
 const queue = new Queue();
 
@@ -72,8 +68,8 @@ const data = [...queue.dequeueAll(100)];
 console.log(data); // [1, 2, 3]
 ```
 
-### Queue.has(id: Queue.id): boolean;
-Check if a QueueID exist
+### has(id): boolean;
+Check if a given queue id exist!
 ```js
 const queue = new Queue();
 
@@ -83,8 +79,8 @@ console.log(queue.has("foo")); // true
 console.log(queue.has("fo")); // false
 ```
 
-### Queue.ids(): string[];
-Get all queues keys
+### ids(): string[];
+Get all queues ids.
 ```js
 const queue = new Queue();
 
@@ -95,8 +91,8 @@ queue.enqueue("test", 20);
 console.log(queue.ids()); // [100, "foo", "test"]
 ```
 
-### Queue.idLength(id: Queue.id): Number;
-Return the number of elements of a given QueueID.
+### idLength(id): Number;
+Return the number of elements of a given queue id.
 ```js
 const queue = new Queue();
 
