@@ -8,6 +8,9 @@
 
 SlimIO - Simple Queue system. This package has been created for the SlimIO core and does not aim to be a popular Queue package (it answer our needs).
 
+## What is it ?
+If you do not know what a queue is, please read the following [wikipedia page](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)).
+
 ## Getting Started
 
 This package is available in the Node Package Repository and can be easily installed with [npm](https://docs.npmjs.com/getting-started/what-is-npm) or [yarn](https://yarnpkg.com).
@@ -30,78 +33,107 @@ console.log(queue.dequeue("foo")); // "bar"
 ```
 
 ## API
-An id is described by the following type: `string|number|symbol`.
+An id is described by the following type: `string|number|symbol`. All following API are methods of Queue class.
 
-### enqueue(id, value: any): void;
+<details><summary>enqueue(id, value: any): void</summary>
+<br />
+
 Enqueue data in a given queue (identified by his id).
 ```js
-const queue = new Queue();
+const { deepStrictEqual } = require("assert");
+const q = new Queue();
+const sym = Symbol("foo");
 
-queue.enqueue(100, 1);
-queue.enqueue(100, 2);
+q.enqueue(sym, 1);
+q.enqueue(sym, 2);
 
-queue.enqueue("foo", "bar");
+const queueData = [...q.dequeueAll(sym)];
+deepStrictEqual(queueData, [1, 2]);
 ```
+</details>
 
-### dequeue(id): any;
-Dequeue the first data that was enqueued in the given queue id.
+<details><summary>dequeue(id): any</summary>
+<br />
+
+Dequeue the first data that was enqueued in the given queue id. A **null** value is returned when there is no data in the queue!
 ```js
-const queue = new Queue();
+const { strictEqual } = require("assert");
+const q = new Queue();
 
-queue.enqueue(100, 1);
-queue.enqueue("foo", "bar");
+q.enqueue(100, 1);
+q.enqueue("foo", "bar");
 
-console.log(queue.dequeue(100)); // 1
-console.log(queue.dequeue("foo")); // "bar"
+strictEqual(q.dequeue(100), 1);
+strictEqual(q.dequeue("foo"), "bar");
+strictEqual(q.dequeue("foo"), null);
 ```
+</details>
 
-### dequeueAll(id): Iterator<any>;
-Dequeue all data that was enqueued in the given queue id.
+<details><summary>dequeueAll(id): Iterator< any ></summary>
+<br />
+
+Dequeue all data that was enqueued in the given queue id. The returned value is a JavaScript iterator, no data will be lost if the iterator is stoped.
 ```js
-const queue = new Queue();
+const { deepStrictEqual } = require("assert");
+const q = new Queue();
 
-queue.enqueue(100, 1);
-queue.enqueue(100, 2);
-queue.enqueue(100, 3);
+q.enqueue("test", 1);
+q.enqueue("test", 2);
+q.enqueue("test", 3);
 
-const data = [...queue.dequeueAll(100)];
-console.log(data); // [1, 2, 3]
+const queueData = [...q.dequeueAll(100)];
+deepStrictEqual(queueData, [1, 2, 3]);
 ```
+</details>
 
-### has(id): boolean;
+<details><summary>has(id): boolean</summary>
+<br />
+
 Check if a given queue id exist!
 ```js
-const queue = new Queue();
+const { strictEqual } = require("assert");
+const q = new Queue();
 
-queue.enqueue("foo", "bar");
+q.enqueue("foo", null);
 
-console.log(queue.has("foo")); // true
-console.log(queue.has("fo")); // false
+strictEqual(q.has("foo"), true);
+strictEqual(q.has("fo"), false);
 ```
+</details>
 
-### ids(): string[];
-Get all queues ids.
+<details><summary>ids(): string[]</summary>
+<br />
+
+Get all registered queue ids.
 ```js
-const queue = new Queue();
+const { deepStrictEqual } = require("assert");
+const q = new Queue();
 
-queue.enqueue(100, 1);
-queue.enqueue("foo", "bar");
-queue.enqueue("test", 20);
+q.enqueue(100, 1);
+q.enqueue("foo", "bar");
+q.enqueue("test", 20);
 
-console.log(queue.ids()); // [100, "foo", "test"]
+const ids = q.ids();
+deepStrictEqual(ids, [100, "foo", "test"]);
 ```
+</details>
 
-### idLength(id): Number;
+<details><summary>idLength(id): number</summary>
+<br />
+
 Return the number of elements of a given queue id.
 ```js
-const queue = new Queue();
+const { strictEqual } = require("assert");
+const q = new Queue();
 
-queue.enqueue("test", 20);
-queue.enqueue("test", 21);
-queue.enqueue("test", 22);
+q.enqueue("test", 20);
+q.enqueue("test", 21);
+q.enqueue("test", 22);
 
-console.log(queue.idLength("test")); // 3
+const len = queue.idLength("test");
+strictEqual(len, 3);
 ```
+</details>
 
 ## License
 MIT
