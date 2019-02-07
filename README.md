@@ -1,5 +1,5 @@
 # Queue
-![V0.2.1](https://img.shields.io/badge/version-0.2.1-blue.svg)
+![V0.2.1](https://img.shields.io/badge/dynamic/json.svg?url=https://raw.githubusercontent.com/SlimIO/Queue/master/package.json&query=$.version&label=Version)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/SlimIO/Queue/commit-activity)
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/SlimIO/Queue/blob/master/LICENSE)
 ![1DEP](https://img.shields.io/badge/Dependencies-1-yellow.svg)
