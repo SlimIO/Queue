@@ -3,6 +3,7 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/SlimIO/Queue/commit-activity)
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/SlimIO/Queue/blob/master/LICENSE)
 ![1DEP](https://img.shields.io/badge/Dependencies-1-yellow.svg)
+![size](https://img.shields.io/bundlephobia/min/@slimio/queue.svg?style=flat)
 [![Known Vulnerabilities](https://snyk.io/test/github/SlimIO/Queue/badge.svg?targetFile=package.json)](https://snyk.io/test/github/SlimIO/Queue?targetFile=package.json)
 [![Build Status](https://travis-ci.com/SlimIO/Queue.svg?branch=master)](https://travis-ci.com/SlimIO/Queue) [![Greenkeeper badge](https://badges.greenkeeper.io/SlimIO/Queue.svg)](https://greenkeeper.io/)
 
