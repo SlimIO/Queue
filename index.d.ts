@@ -1,5 +1,3 @@
-/// <reference types="@types/node" />
-
 declare namespace Queue {
     type id = string|number|symbol;
 }
