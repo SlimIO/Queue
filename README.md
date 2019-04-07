@@ -12,6 +12,9 @@ SlimIO - Simple Queue system. This package has been created for the SlimIO core 
 ## What is it ?
 If you do not know what a queue is, please read the following [wikipedia page](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)).
 
+## Requirements
+- Node.js v10 or higher
+
 ## Getting Started
 
 This package is available in the Node Package Repository and can be easily installed with [npm](https://docs.npmjs.com/getting-started/what-is-npm) or [yarn](https://yarnpkg.com).
@@ -22,7 +25,7 @@ $ npm i @slimio/queue
 $ yarn add @slimio/queue
 ```
 
-## Usage exemple
+## Usage example
 
 ```js
 const Queue = require("@slimio/queue");
