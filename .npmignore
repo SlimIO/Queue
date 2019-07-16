@@ -16,3 +16,5 @@ commitlint.config.js
 .env
 tsconfig.json
 CHANGELOG.md
+.eslintignore
+.snyk
