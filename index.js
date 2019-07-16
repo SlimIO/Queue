@@ -1,14 +1,16 @@
+"use strict";
+
 // Require Third-Party Dependencies
 const is = require("@slimio/is");
 
-/** @typedef {String|Number|Symbol} QID */
+/** @typedef {string|number|Symbol} QID */
 
 /** @type {WeakMap<Queue, Map<QID, any[]>>} */
 const Queues = new WeakMap();
 
 /**
  * @function assertQID
- * @desc assert QID (throw a TypeError if the QID is not valid)
+ * @description assert QID (throw a TypeError if the QID is not valid)
  * @param {!QID} id Queue ID
  * @returns {void}
  *
@@ -27,7 +29,7 @@ class Queue {
     /**
      * @version 0.1.0
      * @memberof Queue#
-     * @constructor
+     * @class
      *
      * @example
      * const queue = new Queue();
@@ -41,8 +43,8 @@ class Queue {
      *
      * @public
      * @memberof Queue#
-     * @method enqueue
-     * @desc Enqueue data in a queue
+     * @function enqueue
+     * @description Enqueue data in a queue
      * @param {!QID} id key identifier
      * @param {!*} value value to enqueue
      *
@@ -77,8 +79,8 @@ class Queue {
      *
      * @public
      * @memberof Queue#
-     * @method dequeue
-     * @desc Dequeue the first data that was enqueued in a queue
+     * @function dequeue
+     * @description Dequeue the first data that was enqueued in a queue
      * @param {!QID} id key identifier
      *
      * @throws {TypeError|Error}
@@ -114,12 +116,11 @@ class Queue {
      *
      * @public
      * @memberof Queue#
-     * @method dequeueAll
-     * @desc Dequeue all data that was enqueued in a queue
+     * @function dequeueAll
+     * @description Dequeue all data that was enqueued in a queue
      * @param {!QID} id key identifier
      *
      * @throws {TypeError|Error}
-     * @returns {Iterator<any>}
      *
      * @example
      * const queue = new Queue();
@@ -150,10 +151,10 @@ class Queue {
      *
      * @public
      * @memberof Queue#
-     * @method has
-     * @desc Check if a QueueID exist
+     * @function has
+     * @description Check if a QueueID exist
      * @param {!QID} id key identifier
-     * @returns {String[]}
+     * @returns {string[]}
      *
      * @example
      * const queue = new Queue();
@@ -174,9 +175,9 @@ class Queue {
      *
      * @public
      * @memberof Queue#
-     * @method ids
-     * @desc Get all queues keys
-     * @returns {String[]}
+     * @function ids
+     * @description Get all queues keys
+     * @returns {string[]}
      *
      * @example
      * const queue = new Queue();
@@ -196,12 +197,12 @@ class Queue {
      *
      * @public
      * @memberof Queue#
-     * @method idLength
-     * @desc Return the number of elements of a given QueueID.
+     * @function idLength
+     * @description Return the number of elements of a given QueueID.
      * @param {!QID} id key identifier
      *
      * @throws {TypeError|Error}
-     * @returns {Number}
+     * @returns {number}
      *
      * @example
      * const queue = new Queue();
