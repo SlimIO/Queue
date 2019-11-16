@@ -3,7 +3,7 @@
 // Require Third-Party Dependencies
 const is = require("@slimio/is");
 
-/** @typedef {string|number|Symbol} QID */
+/** @typedef {string|number|symbol} QID */
 
 /** @type {WeakMap<Queue, Map<QID, any[]>>} */
 const Queues = new WeakMap();
