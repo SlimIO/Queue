@@ -1,11 +1,12 @@
 # Queue
-![V0.2.1](https://img.shields.io/badge/dynamic/json.svg?url=https://raw.githubusercontent.com/SlimIO/Queue/master/package.json&query=$.version&label=Version)
+![version](https://img.shields.io/badge/dynamic/json.svg?url=https://raw.githubusercontent.com/SlimIO/Queue/master/package.json&query=$.version&label=Version)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/SlimIO/Queue/commit-activity)
-[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/SlimIO/Queue/blob/master/LICENSE)
-![1DEP](https://img.shields.io/badge/Dependencies-1-yellow.svg)
+[![mit](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/SlimIO/Queue/blob/master/LICENSE)
+![dep](https://img.shields.io/badge/Dependencies-1-yellow.svg)
 ![size](https://img.shields.io/bundlephobia/min/@slimio/queue.svg?style=flat)
 [![Known Vulnerabilities](https://snyk.io/test/github/SlimIO/Queue/badge.svg?targetFile=package.json)](https://snyk.io/test/github/SlimIO/Queue?targetFile=package.json)
-[![Build Status](https://travis-ci.com/SlimIO/Queue.svg?branch=master)](https://travis-ci.com/SlimIO/Queue) [![Greenkeeper badge](https://badges.greenkeeper.io/SlimIO/Queue.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.com/SlimIO/Queue.svg?branch=master)](https://travis-ci.com/SlimIO/Queue)
+[![Greenkeeper badge](https://badges.greenkeeper.io/SlimIO/Queue.svg)](https://greenkeeper.io/)
 
 SlimIO - Simple Queue system. This package has been created for the SlimIO core and does not aim to be a popular Queue package (it answer our needs).
 
