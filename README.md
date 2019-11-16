@@ -14,7 +14,7 @@ SlimIO - Simple Queue system. This package has been created for the SlimIO core 
 If you do not know what a queue is, please read the following [wikipedia page](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)).
 
 ## Requirements
-- [Node.js](https://nodejs.org/en/) v10 or higher
+- [Node.js](https://nodejs.org/en/) v12 or higher
 
 ## Getting Started
 

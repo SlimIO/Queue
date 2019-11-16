@@ -46,7 +46,7 @@
         "Queue"
     ],
     "engines": {
-        "node": ">=10"
+        "node": ">=12"
     },
     "husky": {
         "hooks": {
